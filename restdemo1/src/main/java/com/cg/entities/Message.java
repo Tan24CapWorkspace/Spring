@@ -1,0 +1,40 @@
+package com.cg.entities;
+
+import java.util.Date;
+
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement        
+// So that its information can be converted to xml format
+public class Message {
+	private String text;
+	private Date date;
+	
+	public Message() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Message(String text) {
+		super();
+		this.text = text;
+		this.date = new Date();
+	}
+
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	
+	
+}
