@@ -1,0 +1,33 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+<context:property-override location="classpath:/person.properties"  />
+<bean id="emp" class="com.cg.iocdemo.Employee" autowire="byType">
+<property name="firstName" value="${emp.fname}" />
+	<property name="lastName" value="${emp.lname}" />
+	<property name="designation" value="POTUS" />
+	<property name="salary" value="1239990" />
+	<property name="contacts">
+		<list>
+			<value>2369869879</value>
+			<value>5765765677</value>
+		</list>
+	</property>
+</bean>
+
+<bean id="address" class="com.cg.iocdemo.Address">
+	<constructor-arg value="White house" />
+	<constructor-arg value="Washignton DC" />
+	<constructor-arg value="${address.city}" />
+</bean>
+<!-- 
+<bean id="address2" class="com.cg.iocdemo.Address">
+		<constructor-arg value="White house" />
+		<constructor-arg value="Washignton DC" />
+		<constructor-arg value="Columbia" />
+</bean>
+ -->
+</beans>
